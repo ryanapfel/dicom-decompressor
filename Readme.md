@@ -13,93 +13,60 @@ A simple CLI tool to recursively decompress compressed DICOM files into a mirror
 - Leaves original files untouched.
 - Reports progress and any errors encountered.
 
-## Installation
+## Using the DICOM Decompressor
 
-### Part 1: One-Time Setup (Python 3.11 & Homebrew)
+Follow these steps to decompress your DICOM files, even if you're new to the command line:
 
-1. **Open Terminal**
+1. **Locate the executable**
 
-   - Find Terminal in Applications > Utilities, or search for it via Spotlight (Cmd + Space).
+   - After building or downloading, you’ll have an executable file named `dicom-decompress` (on macOS) inside the `dist/` folder.
+   - Open Finder and navigate to your project’s `dist/` directory to see `dicom-decompress`.
 
-2. **Install Homebrew** (if you don’t have it)
+2. **Open Terminal**
 
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+   - In Finder, go to **Applications > Utilities** and double-click **Terminal**, or press **Cmd + Space**, type “Terminal” and hit Enter.
+   - A window with a prompt (e.g. `ryan@MacBook-Pro ~ %`) will appear.
 
-3. **Verify Homebrew Installation**
+3. **Drag & drop the executable**
 
-   ```bash
-   brew --version
-   ```
+   - In Finder, click and drag `dist/dicom-decompress` into the Terminal window.
+   - This will paste the full path to the executable.
 
-4. **Install Python 3.11**
+4. **Add the folder to process**
 
-   ```bash
-   brew install python@3.11
-   ```
-
-5. **Add Python 3.11 to Your PATH**
-   ```bash
-   echo 'export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"' >> ~/.zshrc
-   source ~/.zshrc
-   ```
-
-### Part 2: Set Up a Python Virtual Environment
-
-> **Why?** Virtual environments keep your project’s Python tools and libraries organized and separate from your system Python.
-
-1. **Navigate to your working directory** (e.g., Documents):
+   - After the executable path in Terminal, type a space, then drag and drop the folder containing your DICOM files.
+   - Example final command:
 
    ```bash
-   cd ~/Documents
+   /Users/ryan/Developer/UCLA/decompress-script/dist/dicom-decompress /Users/ryan/Downloads/nitro
    ```
 
-2. **Create the virtual environment**:
+5. **Run the command**
 
-   ```bash
-   python3.11 -m venv brainstorme-env
-   ```
+   - Press **Enter**.
+   - The tool will print progress messages as it decompresses files into a new `decompress/` folder alongside your source directory.
 
-3. **Activate the virtual environment**:
-   ```bash
-   source brainstorme-env/bin/activate
-   ```
-   - Your prompt will show `(brainstorme-env)` when active.
-   - To deactivate later:
+6. **(Optional) Run anywhere**
+   - To avoid dragging every time, you can move the executable into a folder in your PATH:
      ```bash
-     deactivate
+     sudo cp dist/dicom-decompress /usr/local/bin/
      ```
+   - Then simply type:
+     ```bash
+     dicom-decompress /path/to/your/dicom_folder
+     ```
+   - and press **Enter**.
 
-### Part 3: Install & Run Brainstorme CLI
+---
 
-1. **Download the Brainstorme Tool**
+**Troubleshooting**
 
-   Use the file that ryan uploaded / proviedd to you or in the dist folder. Make sure it's accessible from your finder.
+- **“Permission denied”**: Make the file executable:
+  ```bash
+  chmod +x dist/dicom-decompress
+  ```
+- **“command not found”**: Ensure you included a space before dragging the DICOM folder, and that the path is correct.
 
-2. **Install the Tool**  
-   With your virtual environment active:
+---
 
-   ```bash
-   pip install /path/to/decompress_script-0.1.0.tar.gz
-   ```
-
-   > _Tip:_ Drag the file from Finder into Terminal to populate the full path.
-
-3. **Test Your Installation**
-
-   ```bash
-   dicom-decompress --help
-   ```
-
-4. RUN
-   ```bash
-   poetry run dicom-decompress /path/to/your/dicom_directory
-   ```
-
-#### Quick Tips for CLI Beginners
-
-- Commands are **case sensitive**.
-- `~` is shorthand for your home folder (`/Users/yourname/`).
-- Press **Tab** to auto-complete file and folder names.
-- If you see “permission denied” or “command not found,” double-check spelling and your PATH setup.
+Now you’re ready to decompress DICOMs without memorizing any commands—just drag, drop, and go!
