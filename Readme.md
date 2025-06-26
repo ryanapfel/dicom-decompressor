@@ -1,10 +1,11 @@
+$$
 # DICOM Decompressor
 
 A simple CLI tool to recursively decompress compressed DICOM files into a mirrored `decompress/` folder alongside the input directory.
 
 ## VIDEO
 
-[VIDEO INSTRUCTIONS](https://www.loom.com/share/5e212c51b79542d89beb80251265b281)
+[VIDEO INSTRUCTIONS](https://www.loom.com/share/6bfe6442047e4a42b75939abe67cc0a2)
 
 ## Features
 
@@ -70,3 +71,4 @@ Follow these steps to decompress your DICOM files, even if you're new to the com
 ---
 
 Now you’re ready to decompress DICOMs without memorizing any commands—just drag, drop, and go!
+$$
